@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wordle/constants/answer_stages.dart';
 import 'package:wordle/constants/colors.dart';
-import 'package:wordle/controller.dart';
+import 'package:wordle/providers/controller.dart';
 import 'package:wordle/data/keys_map.dart';
 
 class KeyboardRow extends StatelessWidget {

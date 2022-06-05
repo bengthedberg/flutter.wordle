@@ -5,7 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:wordle/components/grid.dart';
 import 'package:wordle/components/keyboard_row.dart';
 import 'package:wordle/constants/words.dart';
-import 'package:wordle/controller.dart';
+import 'package:wordle/pages/settings_page.dart';
+import 'package:wordle/providers/controller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -32,6 +33,15 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Wordle'),
         centerTitle: true,
         elevation: 0,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Settings()));
+            },
+            icon: const Icon(Icons.settings),
+          )
+        ],
       ),
       body: Column(children: [
         const Divider(
