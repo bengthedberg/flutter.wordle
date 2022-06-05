@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wordle/components/tile.dart';
 
 class Grid extends StatelessWidget {
   const Grid({Key? key}) : super(key: key);
@@ -16,9 +17,7 @@ class Grid extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border.all(),
             ),
-            child: Center(
-              child: Text(index.toString()),
-            ),
+            child: Tile(index: index),
           );
         });
   }

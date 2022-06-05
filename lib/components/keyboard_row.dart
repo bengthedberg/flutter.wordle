@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wordle/controller.dart';
 import 'package:wordle/data/keys_map.dart';
 
 class KeyboardRow extends StatelessWidget {
@@ -32,7 +34,10 @@ class KeyboardRow extends StatelessWidget {
                   // Inkwell must be wrapped in a Material Widget
                   child: InkWell(
                     // Make a splach effect when tapping key
-                    onTap: () {},
+                    onTap: () {
+                      Provider.of<Controller>(context, listen: false)
+                          .setKeyTapped(value: e.key);
+                    },
                     child: Center(child: Text(e.key)),
                   ),
                 ),
