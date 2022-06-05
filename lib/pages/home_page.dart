@@ -6,7 +6,6 @@ import 'package:wordle/components/grid.dart';
 import 'package:wordle/components/keyboard_row.dart';
 import 'package:wordle/constants/words.dart';
 import 'package:wordle/controller.dart';
-import 'package:wordle/data/keys_map.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -35,20 +34,21 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
       ),
       body: Column(children: [
-        Expanded(
+        const Divider(
+          height: 1,
+          thickness: 2,
+        ),
+        const Expanded(
           flex: 7,
-          child: Container(color: Colors.grey, child: const Grid()),
+          child: Grid(),
         ),
         Expanded(
             flex: 4,
-            child: Container(
-              color: Colors.blueGrey,
-              child: Column(children: const [
-                KeyboardRow(min: 1, max: 10),
-                KeyboardRow(min: 11, max: 19),
-                KeyboardRow(min: 20, max: 29),
-              ]),
-            )),
+            child: Column(children: const [
+              KeyboardRow(min: 1, max: 10),
+              KeyboardRow(min: 11, max: 19),
+              KeyboardRow(min: 20, max: 29),
+            ])),
       ]),
     );
   }
