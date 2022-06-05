@@ -41,31 +41,33 @@ class KeyboardRow extends StatelessWidget {
                   // Round the keys
                   borderRadius: BorderRadius.circular(6),
                   child: SizedBox(
-                    // Space out the keyboard
-                    width: e.key.length > 1
-                        ? size.width * 0.13
-                        : size.width * 0.085,
-                    height: size.height * 0.090,
-                    child: Material(
-                      // Inkwell must be wrapped in a Material Widget
-                      color: color,
-                      child: InkWell(
-                        // Make a splach effect when tapping key
-                        onTap: () {
-                          Provider.of<Controller>(context, listen: false)
-                              .setKeyTapped(value: e.key);
-                        },
-                        child: Center(
-                            child: Text(
-                          e.key,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText2
-                              ?.copyWith(color: keyColor),
-                        )),
-                      ),
-                    ),
-                  ),
+                          width: e.key == 'ENTER' || e.key == 'BACK'
+                              ? size.width * 0.13
+                              : size.width * 0.085,
+                          height: size.height * 0.090,
+                          child: Material(
+                            color: color,
+                            child: InkWell(
+                                onTap: () {
+                                  Provider.of<Controller>(context,
+                                          listen: false)
+                                      .setKeyTapped(value: e.key);
+                                },
+                                child: Center(
+                                  child: e.key == 'BACK'
+                                      ? const Icon(Icons.backspace_outlined)
+                                      : Text(
+                                          e.key,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText2
+                                              ?.copyWith(
+                                                color: keyColor,
+                                              ),
+                                        ),
+                                )),
+                          ),
+                  )
                 ),
               );
             } else {
